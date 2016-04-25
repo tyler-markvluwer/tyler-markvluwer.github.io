@@ -1,58 +1,57 @@
 <html>
-	<head>
-		<meta charset="utf-8">
-  		<meta name="viewport" content="width=device-width, initial-scale=1">
-  		<link rel="stylesheet" type="text/css" href="style.css">
-      
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- Needed for color animations -->
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
 
-  		<uses-permission android:name="android.permission.BROADCAST_STICKY" />
-  		<meta name="apple-mobile-web-app-capable" content="yes">
-  		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  		<meta name="mobile-web-app-capable" content="yes">
-  		<meta name="format-detection" content="telephone=no" />
-  		<meta name="msapplication-tap-highlight" content="no" />
+  <head>
+    <base href="/">
+    <title>Angular 2 QuickStart</title>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    
+    <!-- Tell mobile devices width and init scale -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <link rel="icon" href="assets/img/favicon.ico">
+    
+    <script src="https://code.jquery.com/jquery-2.2.2.js" integrity="sha256-4/zUCqiq0kqxhZIyp4G0Gk+AOtCJsY1TA00k5ClsZYE=" crossorigin="anonymous"></script>
+    <script src="assets/stylesheets/bootstrap.js"></script>
+    <link rel="stylesheet" href="assets/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/stylesheets/custom.css">
 
-		<title>ShuffleIt</title>
-	</head>
-  <body>
+    <!-- 1. Load libraries -->
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script src="node_modules/underscore/underscore.js"></script>
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- 1.5 Load Parallax effect -->
+    <script src="assets/js/parallax.js"></script>
+
+    <!-- 2. Configure SystemJS -->
     <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '425056787688787',
-          xfbml      : true,
-          version    : 'v2.5'
-        });
-      };
-
-      (function(d, s, id){
-          console.log("hi");
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) {return;}
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
+      System.config({
+        packages: {        
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('app/boot')
+            .then(null, console.error.bind(console));
     </script>
 
-    <div id="app-view-mount"></div>
-    <script src='roulette.min.js'></script>
-    <script src="js/bundle.js"></script> <!-- Needed to use the contents of the coffeescript files -->
-  </body>
-  <style type="text/css">
-    .circle-spacer {
-      height: 30%;
-    }
+  </head>
 
-    .row-xs-flex-center {
-      display: flex;
-      align-items: center;
-    }
-    .center-block {
-      display: table;
-      margin: 0 auto;
-    }
-  </style>
+  <!-- 3. Display the application -->
+  <body>
+    <my-app>Loading...</my-app>
+  </body>
+
 </html>
